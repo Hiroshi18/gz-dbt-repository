@@ -191,6 +191,6 @@
      description: All KPI's
      columns:
        - name: ads_margin
-         description: operational_margin - ads_cost
+         description: Operational_margin - ads_cost
          tests:
            - not_null
