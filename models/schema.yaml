@@ -6,6 +6,14 @@
    - name: raw
      schema: gz_raw_data
      tables:
+       - name: adwords
+         identifier: raw_gz_adwords
+       - name: bing
+         identifier: raw_gz_bing
+       - name: criteo
+         identifier: raw_gz_criteo
+       - name: facebook
+         identifier: raw_gz_facebook
        - name: sales
          identifier: raw_gz_sales
          description: sales of Greenweez / we have one row per product_id found in each orders_id
@@ -157,3 +165,32 @@
          description: the cost of preparing the parcel in the distribution centre/warehouse
        - name: ship_cost
          description: shipping cost paid by Greenweez to the carrier/logistics provider
+
+   - name: int_campaigns_day
+     description: All the campaigns aggregated by day
+     columns:
+       - name: date_date
+         description: Date
+         tests:
+           - not_null
+       - name: ads_cost
+         description: sum of ads_cost
+         tests:
+           - not_null
+       - name: ads_impression
+         description: sum of ads_impression
+         tests:
+           - not_null
+       - name: ads_click
+         description: sum of ads_click
+         tests:
+           - not_null
+  
+   # Mart #
+   - name: finance_campaign_day
+     description: All KPI's
+     columns:
+       - name: ads_margin
+         description: operational_margin - ads_cost
+         tests:
+           - not_null
